@@ -1,0 +1,11 @@
+C:\Users\Freedom\source\repos\Biblioteca\Biblioteca\bin\Debug\Biblioteca.exe.config
+C:\Users\Freedom\source\repos\Biblioteca\Biblioteca\bin\Debug\Biblioteca.exe
+C:\Users\Freedom\source\repos\Biblioteca\Biblioteca\bin\Debug\Biblioteca.pdb
+C:\Users\Freedom\source\repos\Biblioteca\Biblioteca\obj\Debug\Biblioteca.csproj.AssemblyReference.cache
+C:\Users\Freedom\source\repos\Biblioteca\Biblioteca\obj\Debug\Biblioteca.FormLibro.resources
+C:\Users\Freedom\source\repos\Biblioteca\Biblioteca\obj\Debug\Biblioteca.FormMain.resources
+C:\Users\Freedom\source\repos\Biblioteca\Biblioteca\obj\Debug\Biblioteca.Properties.Resources.resources
+C:\Users\Freedom\source\repos\Biblioteca\Biblioteca\obj\Debug\Biblioteca.csproj.GenerateResource.cache
+C:\Users\Freedom\source\repos\Biblioteca\Biblioteca\obj\Debug\Biblioteca.csproj.CoreCompileInputs.cache
+C:\Users\Freedom\source\repos\Biblioteca\Biblioteca\obj\Debug\Biblioteca.exe
+C:\Users\Freedom\source\repos\Biblioteca\Biblioteca\obj\Debug\Biblioteca.pdb
