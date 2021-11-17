@@ -20,7 +20,7 @@ namespace Biblioteca
                 _librodatos.InsertarLibro(libro);
             else
             {
-                //_librodatos.UpdateLibro(libro);
+                _librodatos.ActualizarLibro(libro);
             }
             return libro;
         }
@@ -30,9 +30,7 @@ namespace Biblioteca
         }
         public void BorrarLibro(int id)
         {
-
-            //_librodatos.BorrarLibro(id);
-
+            _librodatos.BorrarLibro(id);
         }
     }
         

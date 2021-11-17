@@ -44,9 +44,9 @@ namespace Biblioteca
             
             libro.Titulo = bxTitulo.Text;
             libro.Autor = bxAutor.Text;
-            libro.ISBN = Int32.Parse(bxISBN.Text);
-            libro.Paginas = Int32.Parse(bxPaginas.Text);
-            libro.Edicion = Int32.Parse(bxEdicion.Text);
+            libro.ISBN = bxISBN.Text;
+            libro.Paginas = bxPaginas.Text;
+            libro.Edicion = bxEdicion.Text;
             libro.Editorial = bxEditorial.Text;
             libro.Lugar = bxLugar.Text;
             libro.FechaE = bxFecha.Text;
@@ -62,9 +62,9 @@ namespace Biblioteca
                 ClearForm();
                 bxTitulo.Text = libro.Titulo;
                 bxAutor.Text = libro.Autor;
-                //bxISBN.Text = libro.ISBN;
-                //bxPaginas.Text = libro.Paginas;
-                //bxEdicion.Text = libro.Edicion;
+                bxISBN.Text = libro.ISBN;
+                bxPaginas.Text = libro.Paginas;
+                bxEdicion.Text = libro.Edicion;
                 bxEditorial.Text = libro.Editorial;
                 bxLugar.Text = libro.Lugar;
                 bxFecha.Text = libro.FechaE;

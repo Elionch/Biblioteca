@@ -12,9 +12,9 @@ namespace Biblioteca
         public int Id { get; set; }
         public string Titulo { get; set; }
         public string Autor { get; set; }
-        public int ISBN { get; set; }
-        public int Paginas { get; set; }
-        public int Edicion { get; set; }
+        public string ISBN { get; set; }
+        public string Paginas { get; set; }
+        public string Edicion { get; set; }
         public string Editorial { get; set; }
         public string Lugar { get; set; }
         public string FechaE { get; set; }

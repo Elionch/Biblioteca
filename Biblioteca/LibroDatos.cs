@@ -16,7 +16,7 @@ namespace Biblioteca
             {
                 lb.Open();
 
-                string query =  @"INSERT INTO Libro (Titulo, Autor, ISBN, Paginas, Edicion, Editorial, Lugar, Fecha edicion) VALUES (@Titulo, @Autor, @ISBN, @Paginas, @Edicion, @Editorial, @Lugar, @Fecha edicion)";
+                string query =  @"INSERT INTO InfoLibro (Titulo, Autor, ISBN, Paginas, Edicion, Editorial, Lugar, Fecha_edicion) VALUES (@Titulo, @Autor, @ISBN, @Paginas, @Edicion, @Editorial, @Lugar, @Fecha_edicion)";
 
 
                 SqlParameter titulo = new SqlParameter("@Titulo", libro.Titulo);
@@ -26,7 +26,7 @@ namespace Biblioteca
                 SqlParameter edicion = new SqlParameter("@Edicion", libro.Edicion);
                 SqlParameter editorial = new SqlParameter("@Editorial", libro.Editorial);
                 SqlParameter lugar = new SqlParameter("@Lugar", libro.Lugar);
-                SqlParameter fecha = new SqlParameter("@Fecha edicion", libro.FechaE);
+                SqlParameter fecha = new SqlParameter("@Fecha_edicion", libro.FechaE);
 
 
                 SqlCommand comando = new SqlCommand(query, lb);
@@ -42,9 +42,9 @@ namespace Biblioteca
                 comando.ExecuteNonQuery();
 
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                
+                throw;
             }
             finally
             {
@@ -59,8 +59,8 @@ namespace Biblioteca
             try
             {
                 lb.Open();
-                     string query = @"SELECT Titulo, Autor, ISBN, Paginas, Edicion, Editorial, Lugar, Fecha edicion
-                                   FROM Libro";
+                     string query = @"SELECT Titulo, Autor, ISBN, Paginas, Edicion, Editorial, Lugar, Fecha_edicion
+                                   FROM InfoLibro";
                 SqlCommand comando = new SqlCommand();
               
 
@@ -73,22 +73,22 @@ namespace Biblioteca
                 {
                         libro.Add(new Libro
                     {
-                        Id = int.Parse(reader["Id"].ToString()),
+                       
                         Titulo = reader["Titulo"].ToString(),
                         Autor = reader["Autor"].ToString(),
-                        ISBN = int.Parse(reader["ISBN"].ToString()),
-                        Paginas = int.Parse(reader["Paginas"].ToString()),
-                        Edicion = int.Parse(reader["Edicion"].ToString()),
+                        ISBN = reader["ISBN"].ToString(),
+                        Paginas = reader["Paginas"].ToString(),
+                        Edicion = reader["Edicion"].ToString(),
                         Editorial = reader["Editorial"].ToString(),
                         Lugar = reader["Lugar"].ToString(),
-                        FechaE = reader["Fecha edicion"].ToString(),
+                        FechaE = reader["Fecha_edicion"].ToString(),
                         });
                 }
             }
-            catch (Exception)
+            catch (Exception )
             {
 
-                
+                throw;
             }
             finally
             {
@@ -97,5 +97,74 @@ namespace Biblioteca
             return libro;
 
         }
+        public void ActualizarLibro(Libro libro)
+        {
+            try
+            {
+                
+                lb.Open();
+                string query = @"UPDATE  Contactos  SET Titulo=@Titulo, Autor=@Autor, ISBN=@ISBN, Paginas=@Paginas, Edicion=@Edicion, Editorial=@Editorial, Lugar=@Lugar, Fecha edicion=@Fecha edicion
+                          WHERE Id=@Id";
+                
+
+                SqlParameter id = new SqlParameter("@Id", libro.Id);
+                SqlParameter titulo = new SqlParameter("@Titulo", libro.Titulo);
+                SqlParameter autor = new SqlParameter("@Autor", libro.Autor);
+                SqlParameter isbn = new SqlParameter("@ISBN", libro.ISBN);
+                SqlParameter paginas = new SqlParameter("@Paginas", libro.Paginas);
+                SqlParameter edicion = new SqlParameter("@Edicion", libro.Edicion);
+                SqlParameter editorial = new SqlParameter("@Editorial", libro.Editorial);
+                SqlParameter lugar = new SqlParameter("@Lugar", libro.Lugar);
+                SqlParameter fechae = new SqlParameter("@Fecha edicion", libro.FechaE);
+
+
+                SqlCommand comando = new SqlCommand(query, lb);
+                comando.Parameters.Add(id);
+                comando.Parameters.Add(titulo);
+                comando.Parameters.Add(autor);
+                comando.Parameters.Add(isbn);
+                comando.Parameters.Add(paginas);
+                comando.Parameters.Add(edicion);
+                comando.Parameters.Add(editorial);
+                comando.Parameters.Add(lugar);
+                comando.Parameters.Add(fechae);
+                
+                comando.ExecuteNonQuery();
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                lb.Close();
+            }
+        }
+        public void BorrarLibro(int id)
+
+        {
+            try
+            {
+                lb.Open();
+                string query = "DELETE FROM InfoLibro WHERE Id=@Id";
+                
+                SqlCommand comando = new SqlCommand(query, lb);
+                comando.Parameters.Add(new SqlParameter("@Id", id));
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception )
+            {
+
+                throw;
+            }
+            finally
+            {
+                lb.Close();
+            }
+
+        }
     }
 }
+    
+

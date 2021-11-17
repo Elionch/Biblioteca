@@ -30,12 +30,10 @@ namespace Biblioteca
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.bxBuscar = new System.Windows.Forms.TextBox();
-            this.lblBuscar = new System.Windows.Forms.Label();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.grLibros = new System.Windows.Forms.DataGridView();
-            this.libroBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnEditar = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.btnEliminar = new System.Windows.Forms.DataGridViewLinkColumn();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tituloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.autorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,43 +43,16 @@ namespace Biblioteca
             this.editorialDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lugarDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnEditar = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.btnEliminar = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.libroBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.grLibros)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.libroBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // bxBuscar
-            // 
-            this.bxBuscar.Location = new System.Drawing.Point(304, 49);
-            this.bxBuscar.Name = "bxBuscar";
-            this.bxBuscar.Size = new System.Drawing.Size(100, 20);
-            this.bxBuscar.TabIndex = 0;
-            // 
-            // lblBuscar
-            // 
-            this.lblBuscar.AutoSize = true;
-            this.lblBuscar.Location = new System.Drawing.Point(223, 56);
-            this.lblBuscar.Name = "lblBuscar";
-            this.lblBuscar.Size = new System.Drawing.Size(40, 13);
-            this.lblBuscar.TabIndex = 1;
-            this.lblBuscar.Text = "Buscar";
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Location = new System.Drawing.Point(180, 137);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscar.TabIndex = 2;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(424, 136);
+            this.btnAgregar.Location = new System.Drawing.Point(486, 25);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregar.Size = new System.Drawing.Size(139, 39);
             this.btnAgregar.TabIndex = 3;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
@@ -104,15 +75,25 @@ namespace Biblioteca
             this.btnEditar,
             this.btnEliminar});
             this.grLibros.DataSource = this.libroBindingSource;
-            this.grLibros.Location = new System.Drawing.Point(25, 231);
+            this.grLibros.Location = new System.Drawing.Point(29, 70);
             this.grLibros.Name = "grLibros";
-            this.grLibros.Size = new System.Drawing.Size(1063, 314);
+            this.grLibros.Size = new System.Drawing.Size(1045, 314);
             this.grLibros.TabIndex = 4;
             this.grLibros.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grLibros_CellContentClick);
             // 
-            // libroBindingSource
+            // btnEditar
             // 
-            this.libroBindingSource.DataSource = typeof(Biblioteca.Libro);
+            this.btnEditar.HeaderText = "Editar";
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseColumnTextForLinkValue = true;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.HeaderText = "Eliminar";
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseColumnTextForLinkValue = true;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -170,41 +151,27 @@ namespace Biblioteca
             this.fechaEDataGridViewTextBoxColumn.HeaderText = "FechaE";
             this.fechaEDataGridViewTextBoxColumn.Name = "fechaEDataGridViewTextBoxColumn";
             // 
-            // btnEditar
+            // libroBindingSource
             // 
-            this.btnEditar.HeaderText = "Editar";
-            this.btnEditar.Name = "btnEditar";
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.HeaderText = "Eliminar";
-            this.btnEliminar.Name = "btnEliminar";
+            this.libroBindingSource.DataSource = typeof(Biblioteca.Libro);
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1107, 573);
+            this.ClientSize = new System.Drawing.Size(1107, 414);
             this.Controls.Add(this.grLibros);
             this.Controls.Add(this.btnAgregar);
-            this.Controls.Add(this.btnBuscar);
-            this.Controls.Add(this.lblBuscar);
-            this.Controls.Add(this.bxBuscar);
             this.Name = "FormMain";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.FormMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grLibros)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.libroBindingSource)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox bxBuscar;
-        private System.Windows.Forms.Label lblBuscar;
-        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.DataGridView grLibros;
         private System.Windows.Forms.BindingSource libroBindingSource;

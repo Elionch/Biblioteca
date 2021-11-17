@@ -22,14 +22,12 @@ namespace Biblioteca
 
         private void FormMain_Load(object sender, EventArgs e)
         {
+            
             CargarLibro();
+            
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            CargarLibro(bxBuscar.Text);
-            bxBuscar.Text = string.Empty;
-        }
+       
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -50,9 +48,9 @@ namespace Biblioteca
                     Id = int.Parse((grLibros.Rows[e.RowIndex].Cells[0]).Value.ToString()),
                     Titulo = grLibros.Rows[e.RowIndex].Cells[1].Value.ToString(),
                     Autor = grLibros.Rows[e.RowIndex].Cells[2].Value.ToString(),
-                    ISBN = int.Parse(grLibros.Rows[e.RowIndex].Cells[3].Value.ToString()),
-                    Paginas = int.Parse(grLibros.Rows[e.RowIndex].Cells[4].Value.ToString()),
-                    Edicion = int.Parse(grLibros.Rows[e.RowIndex].Cells[1].Value.ToString()),
+                    ISBN = grLibros.Rows[e.RowIndex].Cells[3].Value.ToString(),
+                    Paginas = grLibros.Rows[e.RowIndex].Cells[4].Value.ToString(),
+                    Edicion = grLibros.Rows[e.RowIndex].Cells[1].Value.ToString(),
                     Editorial = grLibros.Rows[e.RowIndex].Cells[2].Value.ToString(),
                     Lugar = grLibros.Rows[e.RowIndex].Cells[3].Value.ToString(),
                     FechaE = grLibros.Rows[e.RowIndex].Cells[4].Value.ToString(),
@@ -70,8 +68,8 @@ namespace Biblioteca
         }
         public void CargarLibro(String SearchText = null)
         {
-            List<Libro> libros = _librologica.GetLibro(SearchText);
-            grLibros.DataSource = libros;
+            List<Libro> libro = _librologica.GetLibro(SearchText);
+            grLibros.DataSource = libro;
         }
         private void BorrarLibro(int id)
         {
